@@ -20,8 +20,8 @@ tools.
         gcc -Wall -O2 polladc.c -o polladc
 
 
-TODO: A recipe for OE builds
-
+There is a OE recipe that you can use to build a package and/or add to your image.
+It was only tested with Yocto builds.
 
   Run
 =========
