@@ -36,19 +36,19 @@ TODO: A recipe for OE builds
                 ./polladc -d100 2 3 5
 
 
-An example run, polling 4 channels with the minimum delay of 1 ms.
+An example run, polling all 6 channels with the minimum delay of 1 ms.
 
-        root@overo:~/polladc# ./polladc -d1 2 3 5 7
-
+        root@overo:~/polladc# ./polladc -d1 2 3 4 5 6 7
+         
         (use ctrl-c to stop)
-
-        ADC            2      3      5      7   
-        Read  1280:    17    129    124     14  ^C
-
+        
+        ADC            2      3      4      5      6      7   
+        Read  6048:  1483    124    122    129    129   1488  ^C
+        
         Summary:
-          Elapsed 10.96 sec
-          Reads = 1300
-          Rate = 118.626149 Hz
+          Elapsed 65.18 sec
+          Reads = 6065
+          Rate = 93.047326 Hz
 
 
 Updates are only reported to stdout every 16th read.
