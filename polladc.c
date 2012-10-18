@@ -271,8 +271,7 @@ void register_sig_handler()
 
 void sigint_handler(int sig)
 {
-	if (sig == SIGINT || sig == SIGTERM || sig == SIGHUP)
-		abort_read = 1;
+	abort_read = 1;
 }
 
 void msleep(int ms)
