@@ -60,7 +60,7 @@ int abort_read;
 void usage(char *argv_0)
 {
 	printf("\nUsage: %s <options> [adc-list]\n", argv_0);
-	printf("  -d<delay-ms>       Millisecond to delay between reads, default 50\n");
+	printf("  -d<delay-ms>       Delay between reads, default 50, min 1\n");
     printf("  adc-list           Space separated list of ADCs to monitor, 2-7\n");
 	printf("\nExample:\n\t%s -d100 2 3 5\n", argv_0);
 
