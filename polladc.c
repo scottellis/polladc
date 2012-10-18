@@ -162,7 +162,7 @@ void show_elapsed(struct timeval *start, struct timeval *end, int count)
     else
         rate = 0.0;
 
-    printf("Summary:\n  Elapsed %0.2lf sec\n  Reads = %d\n  Rate = %lf Hz\n\n",
+    printf("Summary\n  Elapsed: %0.2lf seconds\n    Reads: %d\n     Rate: %0.2lf Hz\n\n",
         diff, count, rate); 
 }
 
@@ -176,11 +176,11 @@ int loop(int delay_ms, int *list)
 
     fprintf(stdout, "\n(use ctrl-c to stop)\n\n");
 
-    fprintf(stdout, "ADC         ");
+    fprintf(stdout, "ADC          ");
 
     for (i = 0; i < NUM_ADC; i++) {
         if (list[i])
-            fprintf(stdout, "   %d   ", i + 2);
+            fprintf(stdout, "      %d", i + 2);
     }
 
     fprintf(stdout, "\n");
@@ -206,7 +206,7 @@ int loop(int delay_ms, int *list)
 
         // don't spend too much time updating display
         if ((count & 0x001f) == 0) {
-            fprintf(stdout, "\rRead %5d: ", count);
+            fprintf(stdout, "\rRead %8d: ", count);
 
             for (i = 0; i < NUM_ADC; i++) {            
                 if (list[i])
