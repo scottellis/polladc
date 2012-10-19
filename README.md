@@ -51,5 +51,6 @@ An example run, polling all 6 channels with the minimum delay of 1 ms.
           Rate = 93.047326 Hz
 
 
-Updates are only reported to stdout every 16th read.
+Screen updates are not done every read. This is so the timing doesn't get too
+distorted. Check the code for details.
 
