@@ -59,14 +59,13 @@ int abort_read;
 
 void usage(char *argv_0)
 {
-	printf("\nUsage: %s <options> [adc-list]\n", argv_0);
-	printf("  -d<delay-ms>       Delay between reads, default 50, min 1\n");
+    printf("\nUsage: %s <options> [adc-list]\n", argv_0);
+    printf("  -d<delay-ms>       Delay between reads, default 50, min 1\n");
     printf("  adc-list           Space separated list of ADCs to monitor, 2-7\n");
-	printf("\nExample:\n\t%s -d100 2 3 5\n", argv_0);
+    printf("\nExample:\n\t%s -d100 2 3 5\n", argv_0);
 
     exit(0);
 }
-
 
 int main(int argc, char **argv)
 {
@@ -78,10 +77,10 @@ int main(int argc, char **argv)
 
     delay_ms = 50;
 
-   	while ((opt = getopt(argc, argv, "d:h")) != -1) {
-		switch (opt) {
-		case 'd':
-			delay_ms = atoi(optarg);
+    while ((opt = getopt(argc, argv, "d:h")) != -1) {
+        switch (opt) {
+        case 'd':
+            delay_ms = atoi(optarg);
 			
             if (delay_ms < 1) {
                 printf("Invalid delay %d. Must be greater then zero.\n", delay_ms);
@@ -135,7 +134,6 @@ int main(int argc, char **argv)
     else
         show_elapsed(&start, &end, count);
         
-
     return 0;
 }
 
@@ -184,7 +182,6 @@ int loop(int delay_ms, int *list)
     }
 
     fprintf(stdout, "\n");
-    fflush(stdout);
 
     while (!abort_read) {
         for (i = 0; i < NUM_ADC; i++) {
@@ -271,16 +268,16 @@ void register_sig_handler()
 
 void sigint_handler(int sig)
 {
-	abort_read = 1;
+    abort_read = 1;
 }
 
 void msleep(int ms)
 {
-	struct timespec ts;
+    struct timespec ts;
 	
-	ts.tv_sec = ms / 1000;
-	ts.tv_nsec = (ms % 1000) * 1000000;
-	
-	nanosleep(&ts, NULL);
+    ts.tv_sec = ms / 1000;
+    ts.tv_nsec = (ms % 1000) * 1000000;
+
+    nanosleep(&ts, NULL);
 }
 
