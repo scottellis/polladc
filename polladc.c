@@ -255,15 +255,15 @@ int open_adc(int adc)
 
 void register_sig_handler()
 {
-	struct sigaction sia;
+    struct sigaction sia;
 
-	bzero(&sia, sizeof sia);
-	sia.sa_handler = sigint_handler;
+    bzero(&sia, sizeof sia);
+    sia.sa_handler = sigint_handler;
 
-	if (sigaction(SIGINT, &sia, NULL) < 0) {
-		perror("sigaction(SIGINT)");
-		exit(1);
-	} 
+    if (sigaction(SIGINT, &sia, NULL) < 0) {
+        perror("sigaction(SIGINT)");
+        exit(1);
+    } 
 }
 
 void sigint_handler(int sig)
